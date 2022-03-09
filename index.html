@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.3.0/aframe.min.js"> </script>
+    </head>
+    <body>
+        <a-scene>
+            <!--Camera-->
+            <a-entity 
+                position="0 0 0"
+                rotation="0 0 0"
+                animation="property: rotation; to: 0 360 0; easing:linear; loop: true; dur: 30000"
+            ><a-camera position="0 0.5 4.5"></a-camera>
+            </a-entity>
+            
+            
+            <!--Models/Images-->
+            <a-assets timeout="10000">
+                <a-assets-item id="train-obj" src="./models/Blue Train/tinker.obj"></a-assets-item>
+                <a-assets-item id="train-mtl" src="./models/Blue Train/obj.mtl"></a-assets-item>
+                <a-assets-item id="railroad-obj" src="./models/Train Railroad/tinker.obj"></a-assets-item>
+                <a-assets-item id="railroad-mtl" src="./models/Train Railroad/obj.mtl"></a-assets-item>
+                <img id="forest" src="./images/forest.jpg">
+            </a-assets>
+
+            <!--Sky-->
+            <a-sky color="#BBBBBB"></a-sky>
+
+            <!--Ground-->
+            <a-entity>
+                <a-plane
+                    position="0 -0.1 0"
+                    rotation="-90 90 0"
+                    width="20"
+                    height="20"
+                    color="#212A24"
+                    shadow="receive: true"
+                ></a-plane>
+            </a-entity>
+
+            <!--Walls-->
+            <a-entity>
+                <a-box
+                    position="0 4 -5"
+                    rotation="0 0 0"
+                    width="15"
+                    height="10"
+                    depth="0"
+                    src="#forest"
+                ></a-box>
+                <a-box
+                    position="-5 4 0"
+                    rotation="0 90 0"
+                    width="15"
+                    height="10"
+                    depth="0"
+                    src="#forest"
+                ></a-box>
+                <a-box
+                    position="0 4 5"
+                    rotation="0 180 0"
+                    width="15"
+                    height="10"
+                    depth="0"
+                    src="#forest"
+                ></a-box>
+                <a-box
+                    position="5 4 0"
+                    rotation="0 -90 0"
+                    width="15"
+                    height="10"
+                    depth="0"
+                    src="#forest"
+                ></a-box>
+            </a-entity>
+
+            <!--Train-->
+            <a-entity>
+                <a-entity
+                    position="0 0 0"
+                    rotation="-90 0 0"
+                    scale=".1 .1 .1"
+                    obj-model="obj: #train-obj; mtl: #train-mtl"
+                ></a-entity>
+            </a-entity>
+
+            <!--Railroad-->
+            <a-entity>
+                <a-entity
+                    position="0 0 0"
+                    rotation="-90 0 0"
+                    scale=".1 .1 .1"
+                    obj-model="obj: #railroad-obj; mtl: #railroad-mtl"
+                ></a-entity>
+            </a-entity>
+
+
+        </a-scene>
+    </body>
+</html>
